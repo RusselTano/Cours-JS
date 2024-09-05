@@ -7,7 +7,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #f1f1f1;
+  /* color: #f1f1f1; */
+  font-size: 16px;
 }
 
 h1 {
@@ -80,12 +81,20 @@ input {
 }
 
 form {
-  background-color: rgb(114, 37, 216);
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   border-radius: 12px;
+  color: #333;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+form h1 {
+  color: #000;
+  font-size: 25px;
 }
 
 input {
@@ -95,3 +104,14 @@ input {
   outline: none;
   width: 100%;
 }
+
+button {
+  background-color: rgba(4, 105, 20, 0.895);
+  backdrop-filter: blur(1px);
+  border: 2px solid #f1f1f1;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
