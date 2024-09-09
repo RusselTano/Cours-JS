@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoFilckr</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+  <div class="head">
+    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+    <p>Développement Web avancé avec JavaScript et HTML5</p>
+  </div>
+
+  <div class="form__contain">
+    <form action="">
+      <h1>GeoFilckr</h1>
+      <input type="text" placeholder="Latitude" name="latitude" id="latitude">
+      <input type="text" placeholder="Longitude" name="longitude" id="longitude">
+      <input type="date" placeholder="Date minimum de telechargement" name="dateMin" id="dateMin">
+      <input type="date" placeholder="Date maximum de telechargement" name="dateMax" id="dateMax">
+      <input type="number" placeholder="Nombre de photos" name="nbPhotos" id="nbPhotos">
+      <button>Chercher</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
+
+<style>
+  .form__contain {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  form {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    color: #333;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+    width: 300px;
+  }
+
+  form h1 {
+    color: #000;
+    font-size: 25px;
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #f1f1f1;
+    outline: none;
+    width: 100%;
+  }
+
+  button {
+    background-color: rgba(4, 105, 20, 0.895);
+    backdrop-filter: blur(1px);
+    border: 2px solid #f1f1f1;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #f1f1f1;
+  }
+</style>
