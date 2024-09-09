@@ -9,7 +9,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
 }
 
 a {
@@ -62,16 +61,6 @@ li {
   inset: 0;
 }
 
-.heade__title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-input {
-  display: block;
-}
 
 .list_exo {
   padding-left: 20px;
@@ -85,9 +74,13 @@ input {
   text-decoration: underline;
 }
 
+h1,
+h2 {
+  text-align: center;
+}
+
 h1 {
   font-size: 40px;
-  text-align: center;
 }
 
 h2 {
