@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Dylane Tano
+        date   : 2024     
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="head">
+    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+    <p>Développement Web avancé avec JavaScript et HTML5</p>
+  </div>
+
+  <h1 style="text-align: center; text-decoration: underline">Calculer la somme</h1>
+
+</body>
+
+</html>
+
+<script>
+  
+  let nb1 = Number(prompt("Entrer un premier nombre", 0));
+  let nb2 = Number(prompt("Entrer un deuxieme nombre", 0));
+
+
+  let somme = nb1 + nb2;
+  console.log(somme);
+
+  document.write(`<h1 style="text-align: center">${nb1} + ${nb2} = ${somme}</h1>`)
+  document.title = `${somme}`;
+
+</script>
