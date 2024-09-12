@@ -30,8 +30,11 @@
   
   let nb1 = Number(prompt("Entrer un premier nombre", 0));
   let nb2 = Number(prompt("Entrer un deuxieme nombre", 0));
+  let nb3 = Number(prompt("Entrer un troisime nombre", 0));
 
   //On place 0 si l'utilisateur entre un nombre invalide
+
+ console.log( `Le max est : ${Math.max(nb1,nb2,nb3)}`)
 
   if(isNaN(nb1))
   nb1 = 0;
