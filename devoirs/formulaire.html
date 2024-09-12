@@ -35,6 +35,22 @@
 
 </html>
 
+<script>
+  const inputNumber = document.querySelectorAll("input[type='number']")
+  console.log(inputNumber);
+
+  const latitude = inputNumber[0];
+  const longitude = inputNumber[1];
+  const nbPhotos = inputNumber[2];
+
+  console.log(latitude, longitude, nbPhotos);
+
+  console.log(latitude.value);
+  
+  
+  
+</script>
+
 <style>
   .form__contain {
     display: flex;
@@ -58,6 +74,7 @@
   form h1 {
     color: #000;
     font-size: 25px;
+    text-align: center;
   }
 
   input {
