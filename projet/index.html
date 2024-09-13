@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Dylane Tano
+        date   : 2024     
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2 class="rgb"></h2>
+    <div class="color"></div>
+
+    <div class="rangeColor">
+      <div class="input-box">
+        <input type="range" name="red" id="red" value="0" max="255"><br>
+        <label for="red">Rouge : <span class="redValue">0</span></label>
+      </div>
+      <div class="input-box">
+        <input type="range" name="green" id="green" value="0" max="255"><br>
+        <label for="green">Green : <span class="greenValue">0</span></label>
+      </div>
+      <div class="input-box">
+        <input type="range" name="blue" id="blue" value="0" max="255"><br>
+        <label for="blue">Blue : <span class="blueValue">0</span></label>
+      </div>
+    </div>
+    <button>Random color</button>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  const rgbDisplay = document.querySelector(".rgb");
+  const colorDiv = document.querySelector(".color");
+  const inputRange = document.querySelectorAll("input[type='range']");
+  const inputValue = document.querySelectorAll(".input-box span");
+  const randomButton = document.querySelector("button");
+
+  updateColor();
+
+  // document.addEventListener("DOMContentLoaded", updateColor )
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const currentColor = colorDiv.style.backgroundColor;
+    const rgbValues = currentColor.match(/\d+/g); // Extraire les valeurs RGB
+
+    inputRange[0].value = rgbValues[0];
+    inputRange[1].value = rgbValues[1];
+    inputRange[2].value = rgbValues[2];
+
+    inputValue[0].textContent = rgbValues[0];
+    inputValue[1].textContent = rgbValues[1];
+    inputValue[2].textContent = rgbValues[2];
+  });
+
+  function updateColor() {
+    const red = inputRange[0].value;
+    const green = inputRange[1].value;
+    const blue = inputRange[2].value;
+
+    colorDiv.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+    rgbDisplay.textContent = `RGB(${red}, ${green}, ${blue})`;
+  }
+
+  inputRange.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+      inputValue[index].textContent = e.target.value;
+      updateColor();
+    });
+  });
+
+  randomButton.addEventListener("click", randomColor);
+
+  function randomColor() {
+    const randomRed = Math.floor(Math.random() * 256);
+    const randomGreen = Math.floor(Math.random() * 256);
+    const randomBlue = Math.floor(Math.random() * 256);
+
+    inputRange[0].value = randomRed;
+    inputRange[1].value = randomGreen;
+    inputRange[2].value = randomBlue;
+
+    inputValue[0].textContent = randomRed;
+    inputValue[1].textContent = randomGreen;
+    inputValue[2].textContent = randomBlue;
+
+    updateColor();
+  }
+
+</script>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .color {
+    width: 70%;
+    max-width: 300px;
+    height: 300px;
+    background-color: rgb(55, 2, 102);
+    /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);  */
+    border: 2px solid #000000;
+  }
+
+  .rangeColor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  button {
+    background-color: #387e35;
+    border: none;
+    outline: none;
+    padding: 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #f1f1f1;
+    font-weight: bold;
+    font-size: 16px;
+    transition: .3s ease-out;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.16);
+  }
+</style>
