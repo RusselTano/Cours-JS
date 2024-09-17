@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Dylane Tano
+        date   : 2024     
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+  let nom = prompt("Entrer votre nom");
+  let nbReps = Number(prompt("Combien de repetition voulez vous?"));
+
+  for (let i = 1; i <= nbReps; i++) {
+    const randomBlue = Math.floor(Math.random() * 256);
+    const randomRed = Math.floor(Math.random() * 256);
+    const randomGreen = Math.floor(Math.random() * 256);
+
+    document.write(`<h2 style="text-align: center;">${i}--<span style="color: rgb(${randomRed},${randomGreen},${randomBlue}); ">${nom}</span></h2>`);
+  }
+
+</script>
+<style>
+
+</style>
