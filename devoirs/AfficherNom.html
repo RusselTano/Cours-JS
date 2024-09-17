@@ -33,8 +33,9 @@
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
 
-    document.write(`<h2 style="text-align: center;">${i}--<span style="color: rgb(${randomRed},${randomGreen},${randomBlue}); ">${nom}</span></h2>`);
+    document.write(`<h2 style="text-align: center;">${i}--<span style="color: rgb(${randomRed},${randomGreen},${randomBlue}); ">${nom.toLocaleUpperCase()}</span></h2>`);
   }
+  document.title = new Date();
 
 </script>
 <style>
