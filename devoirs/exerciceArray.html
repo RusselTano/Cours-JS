@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--
+    auteur :Joel Boudreau
+    date : 2024
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Manipulation d'un tableau</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <div class="head">
+        <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+        <p>Développement Web avancé avec JavaScript et HTML5</p>
+    </div>
+
+    <script>
+        let couleurs = ["rouge", "vert", "bleu"];
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Manipulation d'un tableau</h1>
+    <h2>Les sorties doivent être à la console (console.log)</h2>
+    <script>
+        //Affichage à la console
+
+        //1
+        //Utiliser console.log pour afficher directement le tableau
+        console.log(couleurs)
+        console.log("*********************************************");
+
+        //2
+        //Utiliser une boucle pour afficher les couleurs une en dessous de l'autre
+        couleurs.forEach(couleur => {
+            console.log(couleur);
+        })
+        console.log("*********************************************");
+
+        //3
+        //Ajouter la couleur jaune au début du tableau
+        couleurs.unshift("Jaune");
+        console.log(couleurs);
+
+
+
+        //4
+        //Ajouter la couleur orange à la fin du tableau
+        couleurs.push("Orange");
+        console.log(couleurs);
+
+
+        //5
+        //Ajouter la couleur violet à la fin du tableau
+        couleurs.push("violet");
+        console.log(couleurs);
+
+
+
+        //6
+        //Utiliser une boucle pour afficher les couleurs une en dessous de l'autre
+        //Vous devriez avoir les couleurs suivantes : jaune, rouge, vert, bleu, orange, violet
+        couleurs.forEach(couleur => {
+            console.log(couleur);
+        })
+        console.log("*********************************************");
+        //7
+        //En utilisant indexOf, afficher l'index de la couleur rouge
+        console.log(couleurs.indexOf("rouge"))
+
+
+
+        //8
+        //Enlever la couleur bleu du tableau
+        couleurs.splice(3,1)
+        // console.log(couleurs);
+
+
+
+        console.log("*********************************************");
+        //9
+        //Utiliser une boucle pour afficher les couleurs une en dessous de l'autre
+        //Vous devriez avoir les couleurs suivantes : jaune, rouge, vert,orange, violet
+        couleurs.forEach(couleur => {
+            console.log(couleur);
+        })
+
+
+        console.log("*********************************************");
+        //10
+        //Renverser l'ordre de votre array et l'afficher
+        couleurs.reverse();
+        couleurs.forEach(couleur => {
+            console.log(couleur);
+        })
+
+    </script>
+
+</body>
+
+</html>
