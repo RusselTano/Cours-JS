@@ -62,7 +62,7 @@ li {
 }
 
 
-.list_exo {
+.list_exo ,ol{
   padding-left: 20px;
 }
 
