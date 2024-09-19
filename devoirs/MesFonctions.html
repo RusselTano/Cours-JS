@@ -10,9 +10,6 @@
 	<meta charset="UTF-8" />
 	<title>template</title>
 
-	<ol>
-		<li></li>
-	</ol>
 
 	<script>
 		//***************************************************************
@@ -25,10 +22,10 @@
 
 		let notes = [90, 90, 100, 99, 77, 95];
 
-		function creerListe(aJours) {
+		function creerListe(aJours,style) {
 			document.write("<ol>");
 			for (let i = 0; i < aJours.length; i++) {
-				document.write(`<li>${aJours[i]}</li>`);
+				document.write(`<li style="list-style-type: ${style};">${aJours[i]}</li>`);
 			}
 			document.write("</ol>");
 		}
@@ -47,7 +44,7 @@
 	<h1>Test de mes fonctions</h1>
 	<script>
 		//appel des fonctions pour tester
-		creerListe(aJours);
+		creerListe(aJours,"lower-roman");
 		creerListe(aMois);
 
 
