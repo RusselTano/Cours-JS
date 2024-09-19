@@ -7,52 +7,52 @@
 -->
 
 <head>
-    <meta charset="UTF-8" />
-    <title>template</title>
+	<meta charset="UTF-8" />
+	<title>template</title>
 
-    <ol>
-        <li></li>
-    </ol>
+	<ol>
+		<li></li>
+	</ol>
 
-    <script>
-        //***************************************************************
+	<script>
+		//***************************************************************
 
-        //Tableaux pour tester
+		//Tableaux pour tester
 
-        let aJours = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
-        let aMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout",
-            "Septembre", "Octobre", "Novembre", "Décembre"];
+		let aJours = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+		let aMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout",
+			"Septembre", "Octobre", "Novembre", "Décembre"];
 
-        let notes = [90, 90, 100, 99, 77, 95];
+		let notes = [90, 90, 100, 99, 77, 95];
 
-        function creerListe(aJours) {
-            document.write("<ol>");
-            for (let i = 0; i < aJours.length; i++) {
-                document.write(`<li>${aJours[i]}</li>`);
-            }
-            document.write("</ol>");
-        }
+		function creerListe(aJours) {
+			document.write("<ol>");
+			for (let i = 0; i < aJours.length; i++) {
+				document.write(`<li>${aJours[i]}</li>`);
+			}
+			document.write("</ol>");
+		}
 
-        function calculerMoyenne(notes) {
-            let somme = 0;
-            for (let i = 0; i < notes.length; i++) {
-                somme += notes[i];
-            }
-            return somme / notes.length;
-        }
-    </script>
+		function calculerMoyenne(notes) {
+			let somme = 0;
+			for (let i = 0; i < notes.length; i++) {
+				somme += notes[i];
+			}
+			return somme / notes.length;
+		}
+	</script>
 </head>
 
 <body>
-    <h1>Test de mes fonctions</h1>
-    <script>
-        //appel des fonctions pour tester
-        creerListe(aJours);
-        creerListe(aMois);
+	<h1>Test de mes fonctions</h1>
+	<script>
+		//appel des fonctions pour tester
+		creerListe(aJours);
+		creerListe(aMois);
 
 
-        document.write(calculerMoyenne(notes));
-    </script>
+		document.write(calculerMoyenne(notes));
+	</script>
 
 
 
