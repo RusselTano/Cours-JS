@@ -12,11 +12,11 @@
   <link rel="stylesheet" href="../css/base.css">
 </head>
 
-<body>
+<body style="text-align: center;">
 
   <script>
     function creerListe(tableauNoms, style) {
-      document.write(`<ul style="text-align:center ;">`);
+      document.write(`<ul>`);
       for (let i = 0; i < tableauNoms.length; i++) {
         document.write(`<li>${tableauNoms[i]}</li>`);
       }
@@ -28,8 +28,8 @@
     <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
     <p>Développement Web avancé avec JavaScript et HTML5</p>
   </div>
-  
-  <h1 style="text-align:center ;">Affichage des noms tries</h1>
+
+  <h1>Affichage des noms tries</h1>
   <script>
     let tableauNoms = [];
     let nom;
