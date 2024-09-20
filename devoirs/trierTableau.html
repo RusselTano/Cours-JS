@@ -16,9 +16,9 @@
 
   <script>
     function creerListe(tableauNoms, style) {
-      document.write("<ol>");
+      document.write(`<ol style="text-align:center ;list-style-type: ${style};">`);
       for (let i = 0; i < tableauNoms.length; i++) {
-        document.write(`<li style="list-style-type: ${style};">${tableauNoms[i]}</li>`);
+        document.write(`<li>${tableauNoms[i]}</li>`);
       }
       document.write("</ol>");
     }
@@ -29,6 +29,7 @@
     <p>Développement Web avancé avec JavaScript et HTML5</p>
   </div>
 
+  <ol style="text-align:center ;"></ol>
   <h1>Affichage des noms tries</h1>
   <script>
     let tableauNoms = [];
