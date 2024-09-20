@@ -16,11 +16,11 @@
 
   <script>
     function creerListe(tableauNoms, style) {
-      document.write(`<ol style="text-align:center ;list-style-type: ${style};">`);
+      document.write(`<ul style="text-align:center ;">`);
       for (let i = 0; i < tableauNoms.length; i++) {
         document.write(`<li>${tableauNoms[i]}</li>`);
       }
-      document.write("</ol>");
+      document.write("</ul>");
     }
   </script>
 
@@ -28,9 +28,8 @@
     <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
     <p>Développement Web avancé avec JavaScript et HTML5</p>
   </div>
-
-  <ol style="text-align:center ;"></ol>
-  <h1>Affichage des noms tries</h1>
+  
+  <h1 style="text-align:center ;">Affichage des noms tries</h1>
   <script>
     let tableauNoms = [];
     let nom;
