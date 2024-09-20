@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  
+
   <script>
     function creerListe(tableauNoms, style) {
       document.write("<ol>");
@@ -36,8 +36,8 @@
 
     do {
       nom = prompt("Entrez un nom :");
-      if (nom !== "") tableauNoms.push(nom); 
-    } while (nom !== "");
+      if (nom !== ""&& nom !== null) tableauNoms.push(nom); 
+    } while (nom !== "" && nom !== null);
    
     tableauNoms.sort();
 
