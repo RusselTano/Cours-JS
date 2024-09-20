@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur :Joel Boudreau
+        date : 2024
+       
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <title>template</title>
+  <link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body>
+  
+  <script>
+    function creerListe(tableauNoms, style) {
+      document.write("<ol>");
+      for (let i = 0; i < tableauNoms.length; i++) {
+        document.write(`<li style="list-style-type: ${style};">${tableauNoms[i]}</li>`);
+      }
+      document.write("</ol>");
+    }
+  </script>
+
+  <div class="head">
+    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+    <p>Développement Web avancé avec JavaScript et HTML5</p>
+  </div>
+
+  <h1>Affichage des noms tries</h1>
+  <script>
+    let tableauNoms = [];
+    let nom;
+
+    do {
+      nom = prompt("Entrez un nom :");
+      if (nom !== "") tableauNoms.push(nom); 
+    } while (nom !== "");
+   
+    tableauNoms.sort();
+
+    creerListe(tableauNoms, "lower-roman");
+  </script>
+
+
+
+</body>
+
+</html>
