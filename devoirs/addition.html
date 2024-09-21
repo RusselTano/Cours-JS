@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <!--
         auteur : Dylane Tano
         date   : 2024     
@@ -27,25 +28,25 @@
 </html>
 
 <script>
-  
+
   let nb1 = Number(prompt("Entrer un premier nombre", 0));
   let nb2 = Number(prompt("Entrer un deuxieme nombre", 0));
   let nb3 = Number(prompt("Entrer un troisime nombre", 0));
 
   //On place 0 si l'utilisateur entre un nombre invalide
 
- console.log( `Le max est : ${Math.max(nb1,nb2,nb3)}`)
+  console.log(`Le max est : ${Math.max(nb1, nb2, nb3)}`)
 
-  if(isNaN(nb1))
-  nb1 = 0;
+  if (isNaN(nb1))
+    nb1 = 0;
 
-  if(isNaN(nb2))
-  nb2 = 0;
+  if (isNaN(nb2))
+    nb2 = 0;
 
   let somme = nb1 + nb2;
 
-  console.table({nb1,nb2})
-  console.log({somme});
+  console.table({ nb1, nb2 })
+  console.log({ somme });
 
   document.write(`<h1 style="text-align: center">${nb1} + ${nb2} = ${somme}</h1>`)
   // document.title = `${somme}`;
