@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  
+
 <!--
         auteur : Dylane Tano
         date   : 2024     
@@ -13,6 +13,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css/base.css">
 </head>
+<script>
+
+  function afficher(array) {
+    for (let i = 1; i <= 5; i++) {
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      array.push(randomNumber);
+      console.log(`${i} -- ${randomNumber}`);
+    }
+  }
+
+</script>
 
 <body>
 
@@ -21,11 +32,30 @@
     <p>Développement Web avancé avec JavaScript et HTML5</p>
   </div>
 
+
 </body>
 
 </html>
 
 <script>
+
+  let tab = [];
+  let randomNumber = 0;
+
+  console.log("**** Tableau non-trie *****");
+  for (let i = 0; i < 5; i++) {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    tab.push(randomNumber);
+    console.log(`${i + 1} -- ${randomNumber}`);
+  }
+
+
+
+  tab.sort();
+  console.log("**** Tableau non-trie *****");
+  for (let i = 0; i < 5; i++) {
+    console.log(`${i + 1} -- ${tab[i]}`);
+  }
 
 
 
