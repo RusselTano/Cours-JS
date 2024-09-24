@@ -13,17 +13,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css/base.css">
 </head>
-<script>
-
-  function afficher(array) {
-    for (let i = 1; i <= 5; i++) {
-      let randomNumber = Math.floor(Math.random() * 100) + 1;
-      array.push(randomNumber);
-      console.log(`${i} -- ${randomNumber}`);
-    }
-  }
-
-</script>
 
 <body>
 
@@ -49,9 +38,8 @@
     console.log(`${i + 1} -- ${randomNumber}`);
   }
 
-
-
   tab.sort();
+
   console.log("**** Tableau non-trie *****");
   for (let i = 0; i < 5; i++) {
     console.log(`${i + 1} -- ${tab[i]}`);
