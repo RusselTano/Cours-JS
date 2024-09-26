@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--
+        auteur : Dylane Tano
+        date   : 2024     
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Trier tableau</title>
+  <link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body style="text-align: center;">
+
+  <div class="head">
+    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+    <p>Développement Web avancé avec JavaScript et HTML5</p>
+  </div>
+
+  <h1>Affichage des noms tries</h1>
+
+  <div class="marquee__container">
+
+    <p class="marquee"> Texte qui défile avec CSS - Texte qui défile avec CSS </p>
+
+  </div>
+
+  <style>
+    .marquee__container {
+      width: 100%;
+      overflow: hidden;
+      /* Masque le contenu qui dépasse les limites */
+      background-color: blueviolet;
+      white-space: nowrap;
+      /* Empêche les retours à la ligne */
+    }
+
+    .marquee {
+      animation: marquee 5s linear infinite;
+      color: azure;
+      font-size: 50px;
+      text-transform: uppercase;
+    }
+
+    .marquee::after {
+    content: " - Texte qui défile avec CSS - Texte qui défile avec CSS";
+    color: rgb(131, 14, 43);
+  }
+  
+  .marquee::before {
+    content: "Texte qui défile avec CSS - Texte qui défile avec CSS";
+    color: rgb(2, 35, 35);
+  }
+
+    @keyframes marquee {
+      0%{
+
+        transform: translateX(10%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+
+
+
+
+
+  <script>
+
+
+  </script>
+
+
+
+</body>
+
+</html>
+
+<!-- 
+syntaxe de base du javascript 
+boucle if 
+déclaration de variables
+let var const
+
+alert
+console.log
+prompt
+document.write()
+
+<script>
+Math
+String
+
+language côté client interpréter par le browser
+
+tableau
+let autos = ["Dodge", "Ford", "Kia"]; //tableau initialisé
+
+let tableau = [];  //tableau vide
+.length
+boucle
+.push
+.pop
+.sort
+.reverse
+
+fonction
+
+ -->
