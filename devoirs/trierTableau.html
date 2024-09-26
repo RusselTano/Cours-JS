@@ -15,12 +15,12 @@
 <body style="text-align: center;">
 
   <script>
-    function creerListe(tableauNoms, style) {
+    function creerListe(tableauNoms) {
       document.write(`<ul>`);
       for (let i = 0; i < tableauNoms.length; i++) {
         document.write(`<li>${tableauNoms[i]}</li>`);
       }
-      document.write("</ul>");
+      document.write(`</ul>`);
     }
   </script>
 
@@ -31,18 +31,18 @@
 
   <h1>Affichage des noms tries</h1>
   <script>
-    
+
     let tableauNoms = [];
     let nom;
 
     do {
       nom = prompt("Entrez un nom :");
-      if (nom !== ""&& nom !== null) tableauNoms.push(nom); 
+      if (nom !== "" && nom !== null) tableauNoms.push(nom);
     } while (nom !== "" && nom !== null);
-   
+
     tableauNoms.sort();
 
-    creerListe(tableauNoms, "lower-roman");
+    creerListe(tableauNoms);
   </script>
 
 
