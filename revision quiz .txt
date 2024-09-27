@@ -1,0 +1,44 @@
+syntaxe de base du javascript 
+boucle if 
+déclaration de variables
+let var const
+
+alert
+console.log
+prompt
+document.write()
+
+<script>
+Math
+String
+
+language côté client interpréter par le browser
+
+tableau
+let autos = ["Dodge", "Ford", "Kia"]; //tableau initialisé
+
+let tableau = [];  //tableau vide
+.length -> renvoie le nombre d'element d'un tableau
+boucle
+.push -> ajoute un ou plusieurs element a la fin du tableau et retourne la nouvelle longeur du tableau
+.pop  -> supprime le dernier element du tableau et le retourne
+.sort -> trier le tableau par ordre alphabetique ou numerique croissant
+.reverse -> inverse l'ordre les elements d'un tableau
+
+fonction
+
+integer
+floating-point
+number
+null
+string
+Boolean
+
+alert box
+prompt box -> retourne la valeur du textbox
+confirm box -> retourne true or false
+
+
+\"SpiderMan\"
+
+document.write() -> ecrire dans le html
