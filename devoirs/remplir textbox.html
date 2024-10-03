@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- 
+    auteur : Joel Boudreau
+    date :  2024
+    but :
+-->
+
+<head>
+	<meta charset="UTF-8" />
+	<title>DOM FORMS</title>
+	<style type="text/css">
+		input[type=text],
+		input[type=button] {
+			width: 20%;
+			font-size: 1.3em;
+		}
+
+		label {
+			font-size: 1.3em;
+			padding-right: 10px;
+		}
+
+		input[type=checkbox] {
+			transform: scale(1.5);
+			padding: 5px;
+		}
+
+		body {
+			margin: 1cm;
+		}
+
+
+	</style>
+
+</head>
+
+<body>
+	<h1>Manipulation des contrôles sur un formulaire</h1>
+	<form name="frmForm" action="">
+		<input type="text" name="txt1" /><br /><br />
+		<input type="text" name="txt2" /><br /><br />
+		<input type="text" name="txt3" /><br /><br />
+		<input type="text" name="txt4" /><br /><br />
+		<input type="text" name="txt5" /><br /><br />
+		<input type="text" name="txt6" /><br /><br />
+		<input type="text" name="txt7" /><br /><br />
+		<input type="text" name="txt8" /><br /><br />
+		<input type="text" name="txt9" /><br /><br />
+
+
+		<input type="button" name="btnRemplir" value="Remplir" onclick="remplir()" />
+		<input type="button" name="btnVider" value="Vider" onclick="vider()" /><br /><br />
+		<label>Activer/Désactiver <input type="checkbox" name="chkToggle" onclick="active()" /></label>
+	</form>
+
+	<h3 id="info">Vous devez remplir TOUTES les boîtes de texte avec le mot "PROG-1340" en utilisant une boucle.</h3>
+</body>
+<script>
+	const inputs = document.querySelectorAll("input[type='text']");
+	let checkbox = document.querySelector("input[type='checkbox']")
+
+	function remplir() {
+		inputs.forEach(input => input.value = "PROG1340");
+
+		let info = document.querySelector("#info");
+		info.textContent = "Textbox rempli";
+	}
+
+	function vider() {
+		inputs.forEach(input => input.value = "")
+	}
+
+	function active() {
+		if (checkbox.checked == true) {
+			inputs.forEach(input => input.disabled = true);
+		}
+		else {
+			inputs.forEach(input => input.disabled = false);
+		}
+	}
+
+
+</script>
+
+</html>

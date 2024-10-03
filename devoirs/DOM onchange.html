@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+    auteur :Joel Boudreau
+    date : 2024
+       
+-->
+
+<head>
+  <meta charset="UTF-8" />
+
+  <title>DOM onchange</title>
+  <style type="text/css">
+    input,
+    label {
+      font-size: 1.3em;
+    }
+
+    body {
+      margin: 2cm;
+    }
+  </style>
+  <script>
+    //Lors du changement de valeur de la 1e boite de texte suivi 
+    //d'une perte du focus (onchange), vous devez placer
+    //le contenu de la 1e boite de texte
+    //en majuscule dans la 2e boite de texte.
+
+
+  </script>
+</head>
+
+<body>
+
+  <form>
+    <input type="text" name="txtInput" value="Ceci est du texte" id="txtInput" onchange="maj()" />
+
+    <input type="text" name="txtOutput" id="txtOutput" />
+  </form>
+
+  <script>
+    function maj() {
+      txtOutput.value = (txtInput.value).toUpperCase();
+      console.log(txtInput);
+    }
+
+  </script>
+
+</body>
+
+</html>
