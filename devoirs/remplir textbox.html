@@ -29,8 +29,6 @@
 		body {
 			margin: 1cm;
 		}
-
-
 	</style>
 
 </head>
@@ -72,7 +70,7 @@
 	}
 
 	function active() {
-		if (checkbox.checked == true) {
+		if (checkbox.checked) {
 			inputs.forEach(input => input.disabled = true);
 		}
 		else {
