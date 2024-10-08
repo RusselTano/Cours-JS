@@ -15,7 +15,7 @@ function updateColor() {
 
   colorDiv.style.backgroundColor = `rgba(${red}, ${green}, ${blue})`;
 
-  rgbDisplay.textContent = `RGBA(${red}, ${green}, ${blue})`;
+  rgbDisplay.textContent = `RGB(${red}, ${green}, ${blue})`;
 }
 
 inputRange.forEach((input, index) => {
