@@ -8,42 +8,167 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Click Bouton</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-  <link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"> -->
+	<link rel="stylesheet" href="../css/base.css">
 
-	<script>
-
-
-
-
-	</script>
 </head>
 
 <body>
 	<div class="head">
-    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
-    <p>Développement Web avancé avec JavaScript et HTML5</p>
-  </div>
-
-	<div class="container">
-
-				<form name="frmClique">
-					<div class="text-center">
-						<h1>Le clique rapide!!</h1>
-						<p>Tu dois cliquer 20 fois le plus rapidement possible
-						</p>
-						<input type="button" class="btn btn-primary btn-lg" value="Clique Moi!" id="btnClick" name="btnClick"
-							onclick="" />
-						<br />
-						<input type="button" value="Rejouer" class="btn btn-success btn-lg" id="btnRejouer" name="btnRejouer"
-							onclick="" />
-						<p># de cliques : <span id="infoClick">0</span></p>
-						<h3 id="message"></h3>
-
-					</div>
-				</form>
+		<h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+		<p>Développement Web avancé avec JavaScript et HTML5</p>
 	</div>
+
+
+	<audio src="../audio/the-troubles-irish-ireland-civil-war-instrumental-synthpop-141565.mp3" autoplay loop></audio>
+
+
+	<div class="clickApp">
+		<h1>Le clique rapide!!</h1>
+		<div class="record">record : 0.00 sec</div>
+		<form name="frmClique">
+
+			<p>Tu dois cliquer 20 fois le plus rapidement possible</p>
+			<div class="buttons">
+				<input type="button" value="Clique Moi!" id="btnClick" name="btnClick" /><br>
+				<input type="button" value="Rejouer 🏋️‍♀️" id="btnRejouer" name="btnRejouer" onclick="rePlay()" />
+			</div>
+			<p># de cliques : <span id="infoClick">0</span></p>
+			<h3 id="message"></h3>
+
+		</form>
+	</div>
+	<audio class="clickSound" src="../audio/select-sound-121244.mp3"></audio>
 </body>
+
+<script>
+	const btnClick = document.querySelector("#btnClick");
+	const btnRejouer = document.querySelector("#btnRejouer");
+	const infoClick = document.querySelector("#infoClick");
+	const message = document.querySelector("#message")
+	const record = document.querySelector(".record")
+	const clickSound = document.querySelector(".clickSound")
+
+	let nbClick = 0;
+	let tempDebut;
+	let tempFin;
+	let times = []; // Tableau pour stocker les temps
+
+	console.log(clickSound);
+	clickSound.preload = "auto";
+	btnClick.addEventListener("click", () => {
+
+		clickSound.play();
+		increment();
+	})
+	function increment() {
+		if (nbClick == 0) {
+			tempDebut = new Date();
+		}
+
+		if (nbClick < 5) {
+			nbClick++;
+		}
+
+		if (nbClick == 5) {
+			tempFin = new Date();
+			let temptTotal = ((tempFin - tempDebut) / 1000).toFixed(2);
+			times.push(temptTotal);
+			message.textContent = `Tu as cliqué ${nbClick} fois en ${temptTotal} secondes.🫡`;
+
+			let bestTime = Math.min(...times);
+			console.log(`Meilleur temps: ${bestTime} secondes`);
+			record.textContent = `Record:\n ${bestTime} sec. `;
+
+			btnClick.disabled = true;
+			btnClick.style.cursor = "no-drop";
+		}
+
+		infoClick.textContent = nbClick;
+		console.log(nbClick);
+	}
+
+	function rePlay() {
+		nbClick = 0;
+		btnClick.disabled = false;
+		infoClick.textContent = nbClick;
+		message.textContent = "";
+		btnClick.style.cursor = "pointer";
+	}
+
+
+</script>
+
+<style>
+	body {
+		background-image: linear-gradient(65deg, #0f0e1c, #ea36a5);
+		background-image: radial-gradient(#0f0e1c, #ea36a5);
+		background-color: hsl(0, 0%, 0%);
+		background-image: radial-gradient(circle farthest-side at right top, #ea36a5, #0f0e1c 100%);
+		color: #efefef;
+
+		height: 100vh;
+	}
+
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		text-align: center;
+	}
+
+	input[type=button] {
+		color: #efefef;
+		width: 400px;
+		border-radius: 35px;
+		font-family: cursive;
+		font-size: 40px;
+		font-weight: bold;
+		border: 0;
+		background-color: #ea36a5;
+		box-shadow: 0px 2px 2px 2px #960b60;
+		padding: 20px;
+		cursor: pointer;
+		transition: scale .3s ease-out;
+	}
+
+	input[type=button]:hover {
+		scale: 1.02;
+	}
+
+	input:nth-of-type(2) {
+		background-color: #fc9912;
+		width: 300px;
+		box-shadow: 0px 2px 2px 2px #fc9912;
+		height: 90px;
+	}
+
+
+	.clickApp {
+		display: grid;
+		gap: 20px;
+		width: 800px;
+		margin: 100px auto;
+		text-align-last: center;
+		position: relative;
+		/* background-color: rgba(255, 255, 255, 0.244); */
+		padding: 50px 0;
+
+	}
+
+	.record {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		background-color: rgba(104, 102, 192, 0.244);
+		padding: 10px;
+		border: 2px solid rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+		/* filter: blur(4px); */
+	}
+</style>
 
 </html>
