@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <!--
+<!--
       développeur(e) : Dylane
-      date : 2024
-           
+      date : 2024      
 -->
 
-  <head>
-    <meta charset="UTF-8" />
-    <title>Quiz</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 
-  </head>
+</head>
 
-  <body>
-    <h1>Quiz</h1>
+<body class="container">
+  <h1>Quiz</h1>
 
-    <hr />
-    <div>
-      <form>
-        <script>
-          let aJours = [
-            "DimanCHE",
-            "lUNdi",
-            "MarDi",
-            "mErCrEdI",
-            "JeuDi",
-            "venDRedI",
-            "SAmEdi",
-          ];
+  <hr />
+  <div>
+    <form>
+      <script>
+        let aJours = [
+          "DimanCHE",
+          "lUNdi",
+          "MarDi",
+          "mErCrEdI",
+          "JeuDi",
+          "venDRedI",
+          "SAmEdi",
+        ];
 
-          //Creer un nouveau tableau
-          let newTab = [];
+        //Creer un nouveau tableau
+        let newTab = [];
 
-          //Placer les jours en minuscule
-          for (let i = 0; i < aJours.length; i++) {
-						//je push les jours dans mon nouveau tableau
-            newTab.push(aJours[i].toLowerCase());
-          }
+        //Placer les jours en minuscule
+        for (let i = 0; i < aJours.length; i++) {
+          //je push les jours dans mon nouveau tableau
+          newTab.push(aJours[i].toLowerCase());
+        }
 
-          //trier le tableau en ordre alphabetique inverse
-          newTab.sort((a, b) => (a > b ? -1 : 1));
+        //trier le tableau en ordre alphabetique inverse
+        newTab.sort((a, b) => (a > b ? -1 : 1));
 
-          //Dropdown list
-          document.write(`<select>`);
-          for (let i = 0; i < newTab.length; i++) {
-            document.write(`<option value="${i}">${newTab[i]}</option>`);
-          }
-          document.write(`</select><br>`);
+        //Dropdown list
+        document.write(`<select>`);
+        for (let i = 0; i < newTab.length; i++) {
+          document.write(`<option value="${i}">${newTab[i]}</option>`);
+        }
+        document.write(`</select><br>`);
 
-          //La valeur de PI
-          document.write(`<p>La valeur de PI est : ${Math.PI}</p>`);
-        </script>
-      </form>
-    </div>
-  </body>
-  <script></script>
+        //La valeur de PI
+        document.write(`<p>La valeur de PI est : ${Math.PI}</p>`);
+      </script>
+    </form>
+  </div>
+</body>
+
 </html>
