@@ -44,4 +44,8 @@ textarea:focus {
   gap: 30px;
 }
 
+button {
+  padding: 14px 17px;
+}
+
 
