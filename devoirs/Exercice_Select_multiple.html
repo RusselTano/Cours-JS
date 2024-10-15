@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Joel Boudreau
+        date :  2024
+        but :
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SELECT multipe</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style>
+    body {
+      margin: 100px;
+      font-size: 130%;
+    }
+
+    select,
+    option,
+    textArea {
+      font-size: 100%;
+      padding: 5px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Select à plusieurs sélections</h1>
+  <form id="frmWeb">
+
+    <p>SVP Choississez les sites que vous avez déjà été visité:</p>
+    <br /><br />
+
+    <select id="ddlSitesWEB" size="5" multiple="multiple">
+      <option value="https://www.tsn.ca/">TSN</option>
+      <option value="https://www.netflix.com/">Netflix</option>
+      <option value="https://www.cnn.com/">CNN</option>
+      <option value="https://www.meteomedia.com/">MétéoMédia</option>
+      <option value="https://flickr.com/">Flickr</option>
+    </select>
+
+    <br /><br />
+
+    <input type="Button" class="btn btn-primary  btn-lg" name="btnChoix" value="Afficher choix!" onclick="" />
+    <input type="Button" class="btn btn-primary btn-lg" name="btnReset" value="Vider" onclick="" />
+
+    <br /><br />
+    <p>Mes sélections:</p>
+    <br />
+    <textarea id="txtMesChoix" rows="5" cols="30"></textarea>
+    <h5>Sélectionner le nombre d'items visibles dans le select</h5>
+    <div>
+      <label>1 <input type="range" min="1" max="5" value="5" id="rangeSize"> 5</label>
+    </div>
+  </form>
+</body>
+
+<script>
+  const range = document.querySelector("input[type=range]")
+  const select = document.querySelector('select');
+  const textArea = document.querySelector("textarea");
+  const btnChoix = document.querySelector("input[name=btnChoix]")
+  const btnReset = document.querySelector("input[name=btnReset]")
+  console.log(btnChoix,btnReset);
+  
+  let sizeSelect = 0;
+
+  range.addEventListener("input", (e) => {
+    sizeSelect = e.target.value;
+    select.size = sizeSelect;
+  })
+
+  btnChoix.addEventListener("click", () => {
+    textArea.value += select.options[select.selectedIndex].innerHTML+'\n';
+  })
+
+  btnReset.addEventListener("click", () => {
+    textArea.value = '';
+  })
+
+</script>
+
+</html>
