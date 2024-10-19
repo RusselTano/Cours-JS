@@ -12,15 +12,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
   <title>Document</title>
 </head>
 
 <body>
-	<div class="head">
-		<h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
-		<p>Développement Web avancé avec JavaScript et HTML5</p>
-	</div>
+  <div class="head">
+    <h1><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+    <p>Développement Web avancé avec JavaScript et HTML5</p>
+  </div>
   <div class="container">
 
     <h2 class="rgba">RGBA(242,227,145)</h2>
@@ -42,7 +42,7 @@
         <input type="range" name="blue" id="blue" value="145" max="255"><br>
         <label for="blue">Blue : <span class="blueValue"></span></label>
       </div>
-      
+
       <div class="input-box">
         <input type="range" name="opacity" id="opacity" value="1" max="1" step="0.1"><br>
         <label for="opacity">Opacity : <span class="opacityValue"></span></label>
@@ -59,8 +59,134 @@
 
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    const rgbDisplay = document.querySelector(".rgba");
+    const colorDiv = document.querySelector(".color");
+    const inputRange = document.querySelectorAll("input[type='range']");
+    const inputValue = document.querySelectorAll(".input-box span");
+    const randomButton = document.querySelector(".randomButton");
+    const copyButton = document.querySelector(".copyButton");
+    const textarea = document.querySelector("textarea")
+
+    function emptyTextarea() {
+      setTimeout(() => {
+        textarea.value = ''
+      }, 1000);
+    }
+    textarea.addEventListener("blur", emptyTextarea);
+
+    updateColor();
+
+    function updateColor() {
+      const red = inputRange[0].value;
+      const green = inputRange[1].value;
+      const blue = inputRange[2].value;
+      const opacity = inputRange[3].value;
+
+      updateInput(red, green, blue, opacity)
+
+      colorDiv.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+
+      rgbDisplay.textContent = `RGBA(${red}, ${green}, ${blue}, ${opacity})`;
+    }
+
+    inputRange.forEach((input, index) => {
+      input.addEventListener("input", (e) => {
+        inputValue[index].textContent = e.target.value;
+        updateColor();
+      });
+    });
+
+    randomButton.addEventListener("click", randomColor);
+
+    function randomColor() {
+      const randomRed = Math.floor(Math.random() * 256);
+      const randomGreen = Math.floor(Math.random() * 256);
+      const randomBlue = Math.floor(Math.random() * 256);
+      const randomOpacity = Math.random();
+
+      updateInput(randomRed, randomGreen, randomBlue, randomOpacity)
+
+      updateColor();
+    }
+
+    function updateInput(red, green, blue, opacity) {
+      inputRange[0].value = red;
+      inputRange[1].value = green;
+      inputRange[2].value = blue;
+      inputRange[3].value = opacity;
+
+      inputValue[0].textContent = red;
+      inputValue[1].textContent = green;
+      inputValue[2].textContent = blue;
+      inputValue[3].textContent = opacity;
+    }
+
+    copyButton.addEventListener("click", copyColor)
+
+    function copyColor() {
+      const colorText = rgbDisplay.textContent;
+      navigator.clipboard.writeText(colorText.toLowerCase()).then(() => {
+        alert(`La couleur ${colorText.toLowerCase()} a été copiée dans le presse-papiers !`);
+      }).catch(err => {
+        console.error('Échec de la copie : ', err);
+      });
+
+    }
+  </script>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    textarea {
+      outline: none;
+      resize: none;
+      padding: 10px;
+      max-width: 300px;
+    }
+
+    textarea:focus {
+      border: #387e35 2px solid;
+    }
+
+    .color {
+      width: 70%;
+      min-width: 200px;
+      max-width: 300px;
+      height: 200px;
+      background-color: rgb(242, 227, 145);
+      border-radius: 12px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+          79% 91%, 50% 70%, 21% 91%, 32% 57%,
+          2% 35%, 39% 35%);
+      box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.16);
+
+    }
+
+    .rangeColor {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+    }
+
+    button {
+      padding: 14px 17px;
+    }
+
+    .head {
+      font-size: 1.1rem;
+    }
+  </style>
 </body>
 
 </html>
-
