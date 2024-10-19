@@ -73,6 +73,7 @@
   })
 
   btnChoix.addEventListener("click", () => {
+    textArea.value = "";
     textArea.value += select.options[select.selectedIndex].innerHTML+'\n';
   })
 
