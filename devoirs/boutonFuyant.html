@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>Clike me</button>
+
+
+
+</body>
+
+</html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    margin: 100px auto;
+    color: #ffffff;
+    background-color: #000;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    /* transition: .2s ease-out; */
+  }
+</style>
+
+<script>
+  const button = document.querySelector("button");
+
+  console.log(button);
+
+  document.addEventListener("mouseover", (souris) => {
+    const rect = button.getBoundingClientRect();
+    const distance = Math.sqrt(
+      Math.pow(souris.clientX - (rect.left + rect.width / 2), 2) +
+      Math.pow(souris.clientY - (rect.top + rect.height / 2), 2)
+    );
+    if (distance < 200 || distance <= 0) {
+      const newTop = Math.random() * (window.innerHeight - rect.height);
+      const newLeft = Math.random() * (window.innerWidth - rect.width);
+
+      button.style.top = newTop + 'px';
+      button.style.left = newLeft + 'px';
+    }
+  })
+
+
+
+
+</script>
