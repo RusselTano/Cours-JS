@@ -12,24 +12,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="../css/base.css">
-	<style type="text/css">
-		input[type=text],
-		input[type=button] {
-			width: 20%;
-			font-size: 1.3em;
-		}
-
-		label {
-			font-size: 1.3em;
-			padding-right: 10px;
-		}
-
-		input[type=checkbox] {
-			transform: scale(1.5);
-			padding: 5px;
-		}
-	</style>
-
 </head>
 
 <body>
@@ -52,32 +34,48 @@
 		</form>
 		<h3 id="info">Vous devez remplir TOUTES les boîtes de texte avec le mot "PROG-1340" en utilisant une boucle.</h3>
 	</div>
+
+	<script>
+		const inputs = document.querySelectorAll("input[type='text']");
+		let checkbox = document.querySelector("input[type='checkbox']")
+	
+		function remplir() {
+			inputs.forEach(input => input.value = "PROG1340");
+	
+			let info = document.querySelector("#info");
+			info.textContent = "Textbox rempli";
+		}
+	
+		function vider() {
+			inputs.forEach(input => input.value = "")
+		}
+	
+		function active() {
+			if (checkbox.checked) {
+				inputs.forEach(input => input.disabled = true);
+			}
+			else {
+				inputs.forEach(input => input.disabled = false);
+			}
+		}
+	</script>
+	
+	<style type="text/css">
+		input[type=text],
+		input[type=button] {
+			width: 20%;
+			font-size: 1.3em;
+		}
+	
+		label {
+			font-size: 1.3em;
+			padding-right: 10px;
+		}
+	
+		input[type=checkbox] {
+			transform: scale(1.5);
+			padding: 5px;
+		}
+	</style>
 </body>
-<script>
-	const inputs = document.querySelectorAll("input[type='text']");
-	let checkbox = document.querySelector("input[type='checkbox']")
-
-	function remplir() {
-		inputs.forEach(input => input.value = "PROG1340");
-
-		let info = document.querySelector("#info");
-		info.textContent = "Textbox rempli";
-	}
-
-	function vider() {
-		inputs.forEach(input => input.value = "")
-	}
-
-	function active() {
-		if (checkbox.checked) {
-			inputs.forEach(input => input.disabled = true);
-		}
-		else {
-			inputs.forEach(input => input.disabled = false);
-		}
-	}
-
-
-</script>
-
 </html>

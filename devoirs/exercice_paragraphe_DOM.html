@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- 
+        auteur : Joel Boudreau
+        date :  2024
+        but :
+-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Exercices Paragraphe</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body>
+
+	<div class="head">
+		<h1 class="text-4xl font-bold"><i class="bi bi-code"></i> PROG-1340 <i class="bi bi-code-slash"></i></h1>
+		<p>Développement Web avancé avec JavaScript et HTML5</p>
+	</div>
+
+	<div id="app">
+		<h1 class="text-3xl font-bold underline text-center"><i class="fas fa-code"></i> JavaScript <i
+				class="fas fa-code"></i></h1>
+		<p>
+			JavaScript a été créé en 1995 par Brendan Eich. Il a été standardisé sous le nom d'ECMAScript en juin 1997 par
+			Ecma International dans le standard ECMA-262. Le standard ECMA-262 en est actuellement à sa 8e édition. JavaScript
+			n'est depuis qu'une implémentation d'ECMAScript, celle mise en œuvre par la fondation Mozilla. L'implémentation
+			d'ECMAScript par Microsoft (dans Internet Explorer jusqu'à sa version 9) se nomme JScript, tandis que celle
+			d'Adobe Systems se nomme ActionScript. Avec les technologies HTML et CSS, JavaScript est parfois considéré comme
+			l'une des technologies cœur du World Wide Web. Le langage JavaScript permet des pages web interactives, et à ce
+			titre est une partie essentielle des applications web. Une grande majorité des sites web l'utilisent, et la
+			majorité des navigateurs web disposent d'un moteur JavaScript dédié pour l'interpréter indépendamment des
+			considérations de sécurité qui peuvent se poser le cas échéant.
+		</p>
+		<p><strong>Source:</strong><a href="https://fr.wikipedia.org/wiki/JavaScript">Wikipédia</a></p>
+		<input type="button"
+			class="flex h-15 w-30 items-center justify-center rounded-lg bg-slate-900 px-5 py-2 text-white font-semibold hover:bg-slate-700 focus:outline-none focus-ring-2 focus:ring-slate-400 focus-ring-offset-2 focus:ring-offset-slate-50"
+			value="Souligner les mots" />
+	</div>
+
+	<script>
+		const button = document.querySelector("input[type=button]");
+		const paragraphe = document.querySelector("#app p");
+		let nbWords = 0;
+		let words = paragraphe.innerText.split(" ")
+		console.log(words);
+
+		button.addEventListener("click", highLightWords);
+
+		function highLightWords() {
+			words.forEach((word, i) => {
+				if (word.length >= 10) {
+					words[i] = `<span>${word}</span>`;
+					nbWords++;
+				}
+			});
+			paragraphe.innerHTML = words.join(' ');
+			document.title = `${nbWords} Mots`;
+		}
+	</script>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+
+		:root {
+
+			--font-text: "Inter", sans-serif;
+
+			--font-size-link: 13px;
+			--font-weight-link: 500;
+			--text-color: #fff;
+			--link-color: #ffffffc8;
+			--link-color-hover: #ffffff;
+			--line-heigth-link: 18px;
+
+			--font-size-text: 18px;
+			--font-weigth-text: 400;
+			--line-heigth-text: 32px;
+		}
+
+		#app {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding: 2rem 10rem;
+		}
+
+		#app p:first-of-type {
+			/* background-color: crimson; */
+			font-size: var(--font-size-text);
+			font-weight: var(--font-weigth-text);
+			line-height: var(--line-heigth-text);
+			text-align: justify;
+		}
+
+		span {
+			background-color: lightgreen;
+		}
+
+		input[type=button]:hover {
+			cursor: pointer;
+			align-self: start;
+		}
+
+		input[type=button] {
+			cursor: pointer;
+			align-self: start;
+		}
+	</style>
+</body>
+
+</html>
