@@ -75,7 +75,7 @@
     }
     textarea.addEventListener("blur", emptyTextarea);
 
-    updateColor();
+      updateColor();
 
     function updateColor() {
       const red = inputRange[0].value;
@@ -92,7 +92,7 @@
 
     inputRange.forEach((input, index) => {
       input.addEventListener("input", (e) => {
-        inputValue[index].textContent = e.target.value;
+        // inputValue[index].textContent = e.target.value;
         updateColor();
       });
     });
