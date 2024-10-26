@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Dylane Tano
+        date   : 2024     
+-->
+
+<head>
+	<meta charset="UTF-8" />
+	<title>CheckBox </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<style>
+		body {
+			margin: 100px;
+			font-size: 130%;
+		}
+
+		input[type=checkbox] {
+			transform: scale(1.5);
+			padding: 10px;
+			margin-left: 5px;
+		}
+
+		label {
+			margin-right: 15px;
+		}
+	</style>
+
+	<script>
+
+	</script>
+</head>
+
+<body>
+
+	<h1>Bienvenue chez Boudreau Jeep</h1>
+
+	<br />
+	<form name="frmCar">
+
+		<h3>SVP Sélectionner un modèle de Jeep: </h3>
+
+		<select name="sType" size="1">
+			<option selected="selected">Cherokee</option>
+			<option>Grand Cherokee</option>
+			<option>Patriot</option>
+			<option>Renegade</option>
+			<option>Compass</option>
+		</select>
+
+		<br /><br />
+		<h3>SVP Sélectionner les options voulues</h3>
+		<div>
+			<label>Tainted Glass <input type="checkbox" name="chkOptions" value="Tainted Glass" /></label>
+			<label>Radio <input type="checkbox" name="chkOptions" value="Radio" /></label>
+			<label>CD <input type="checkbox" name="chkOptions" value="CD" /></label>
+			<label>Cruise Control <input type="checkbox" name="chkOptions" value="Cruise Control" /></label>
+			<label>Wheel Cover <input type="checkbox" name="chkOptions" value="Wheel Cover" /></label>
+			<br />
+
+			<label>A/C <input type="checkbox" name="chkOptions" value="A/C" /></label>
+			<label>Alloyed Wheels <input type="checkbox" name="chkOptions" value="Alloyed Wheels" /></label>
+			<label>Spoiler <input type="checkbox" name="chkOptions" value="Spoiler" /></label>
+			<label>Roof Rack <input type="checkbox" name="chkOptions" value="Roof Rack" /></label>
+			<label>Cargo Net <input type="checkbox" name="chkOptions" value="Cargo Net" /></label>
+		</div>
+		<br />
+		<br />
+
+		<input type="button" name="btnDisplay" class="btn btn-primary  btn-lg" value="Afficher vos choix" />
+		<input type="reset" name="btnReset" class="btn btn-primary  btn-lg" value="Annuler" />
+
+		<hr size="10" />
+		<br />
+
+		<div align="center">
+			<h3>Output</h3><textarea id="txtOutput" rows="8" cols="80"></textarea>
+		</div>
+	</form>
+	<p>&nbsp;</p>
+	<p>Lorsque vous cliquerez sur le bouton "Afficher vos choix", faites
+		afficher le modèle sélectionné avec tous les options cochées.&nbsp; </p>
+
+</body>
+<script>
+	//Constantes
+	const select = document.querySelector("select")
+	const checkboxes = document.querySelectorAll("input[type=checkbox]")
+	const btnDisplay = document.querySelector("input[name=btnDisplay]")
+	const btnReset = document.querySelector("input[name=btnReset]")
+	const textArea = document.querySelector("textarea");
+
+	//Variable
+	let modelJeep = "";
+	let options = [];
+
+	select.addEventListener("input", () => {
+		modelJeep = select.options[select.selectedIndex].value; 
+	})
+
+	btnDisplay.addEventListener("click", () => {
+		checkboxes.forEach(checkbox => {
+			if (checkbox.checked){
+				options.push(checkbox.value)
+			}
+		})
+		modelJeep = select.options[select.selectedIndex].value;
+		textArea.value = `Modèle sélectionné : ${modelJeep}, \nOptions choisies : ${options.join(", ")}`;
+	})
+	console.log(select, checkboxes);
+
+  btnReset.addEventListener("click", () => {
+    textArea.value = '';
+  })
+</script>
+
+</html>

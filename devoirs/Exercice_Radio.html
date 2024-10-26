@@ -4,6 +4,7 @@
         auteur : Dylane Tano
         date   : 2024     
 -->
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Radio Buttons</title>
@@ -17,7 +18,7 @@
 
 		<br />
 		<div>
-			<label><input type="Radio" name="optEquipe" value="Montréal" checked="checked" /> Canadiens</label>
+			<label><input type="Radio" name="optEquipe" value="Montréal" /> Canadiens</label>
 			<br />
 			<label><input type="Radio" name="optEquipe" value="Québec" /> Nordiques</label>
 			<br />
@@ -41,9 +42,19 @@
 			avez choisis l'équipe de ????????"</strong></p>
 	<h3 id="affichage"></h3>
 	<script>
+		const afficherBtn = document.querySelector('input[name="btnShowCity"]');
+		const affichage = document.querySelector('#affichage');
+		const inputs = document.querySelectorAll("input[name='optEquipe']");
 
+		afficherBtn.addEventListener("click", () => {
+			inputs.forEach(input => {
+				if (input.checked) {
+					affichage.innerHTML = `Vous avez choisi l'équipe de ${input.value}`;
+				}
+			});
+		});
 	</script>
-	
+
 	<style>
 		body {
 			margin: 100px;
@@ -51,4 +62,5 @@
 		}
 	</style>
 </body>
+
 </html>
