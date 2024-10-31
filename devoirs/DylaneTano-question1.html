@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Dylane Tano
+        date : 2024
+       
+-->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Test 1 Question 1</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+		crossorigin="anonymous"></script>
+	<script>
+
+	</script>
+
+	<style type="text/css">
+		div.containerIng {
+			margin: 0 auto;
+			width: 70%;
+			border: 1px solid black;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		input[type=checkbox] {
+			transform: scale(1.5);
+		}
+
+		label {
+			padding: 5px 10px;
+			font-family: 'Times New Roman', Times, serif;
+			font-size: 1.8em;
+		}
+
+		div#boutons {
+			padding-top: 15px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		input[type=button] {
+			width: 150px;
+			margin: 20px;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0 auto;
+		}
+
+		#ListeIngs {
+			margin: 0 auto;
+			width: 70%;
+			text-align: center;
+			font-size: 1.5em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="jumbotron text-center" style="margin-bottom:0">
+		<h1><i class="bi bi-star-fill"></i> Pizza chez Joe <i class="bi bi-star-fill"></i></h1>
+		<p>Commander votre pizza -- étape des ingrédients</p>
+	</div>
+	<hr />
+	<div>
+		<form>
+			<h2>Veuillez sélectionner vos ingrédients :</h2>
+			<br />
+			<div class="containerIng">
+				<div class="row">
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Salami" name="ckIngs" class="viandes" /> Salami
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Pepperoni" name="ckIngs" class="viandes" /> Pepperoni
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Hamburg" name="ckIngs" class="viandes" /> Hamburg
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Oignons" name="ckIngs" /> Oignons
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Piments" name="ckIngs" /> Piments
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Champignons" name="ckIngs" /> Champignons
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Jambon" name="ckIngs" class="viandes" /> Jambon
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Ananas" name="ckIngs" /> Ananas
+						</label>
+					</div>
+					<div class="col">
+						<label>
+							<input type="checkbox" value="Bacon" name="ckIngs" class="viandes" /> Bacon
+						</label>
+					</div>
+				</div>
+			</div>
+			<div id="boutons">
+				<input type="Button" id="btnAllDressed" class="btn btn-success  btn-lg" name="btnChoix" value="All Dressed" />
+				<input type="Button" id="btnAllMeat" class="btn btn-success  btn-lg" name="btnChoix" value="All Meat" />
+				<input type="Button" id="btnCancel" class="btn btn-success  btn-lg" name="btnChoix" value="Annuler" />
+				<br />
+				<input type="Button" id="btnOrder" class="btn btn-danger  btn-lg" name="btnChoix" value="Commander" />
+			</div>
+		</form>
+	</div>
+
+	<div id="commande">
+		<h2>Liste des ingrédients</h2>
+		<div>
+			<ul id="ListeIngs">
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		// html elements
+		const ingredients = document.querySelectorAll("input[name=ckIngs]");
+		const btnAllDressed = document.querySelector("#btnAllDressed")
+		const btnAllMeat = document.querySelector("#btnAllMeat")
+		const btnCancel = document.querySelector("#btnCancel")
+		const btnOrder = document.querySelector("#btnOrder")
+		const listeIngs = document.querySelector("#ListeIngs")
+
+		// tableau des elements selectionne
+		let selectedIngs = [];
+
+		console.log(ingredients, btnAllDressed, btnAllMeat, btnCancel, btnOrder, listeIngs);
+
+		// AllDresses
+		btnAllDressed.addEventListener("click", () => {
+			ingredients.forEach(ingredient => ingredient.checked = true)
+		})
+
+		//AllMeat
+		btnAllMeat.addEventListener("click", () => {
+			ingredients.forEach(ingredient => {
+				if (ingredient.className == "viandes")
+					ingredient.checked = true;
+				else
+					ingredient.checked = false;
+			})
+		})
+
+		//Cancel
+		btnCancel.addEventListener("click", () => {
+			ingredients.forEach(ingredient => ingredient.checked = false)
+		})
+
+		//Order
+		btnOrder.addEventListener("click", () => {
+			listeIngs.innerHTML = `<li></li>`
+
+			ingredients.forEach(ingredient => {
+				if (ingredient.checked) {
+					selectedIngs.push(ingredient)
+				}
+			})
+
+			if (selectedIngs.length > 0) {
+
+				for (let i = 0; i < selectedIngs.length; i++) {
+					listeIngs.innerHTML += `<li>${selectedIngs[i].value}</li>`
+				}
+ 
+				//disabled button
+				btnAllDressed.disabled = true;
+				btnAllMeat.disabled = true;
+				btnCancel.disabled = true;
+				btnOrder.disabled = true;
+
+				//modifier le title
+				document.title = `${selectedIngs.length} ingredient(s)`;
+			}
+			else {
+				listeIngs.innerHTML = `<li>Vous devez choisir au moins 1 ingredient</li>`
+			}
+		})
+	</script>
+
+</body>
+
+</html>
