@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<!--
+        auteur : Joel Boudreau
+        date :  2024
+        but :
+-->
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Question 1 - test Javascript</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<style>
+		body {
+			margin: 100px;
+			font-size: 120%;
+			font-weight: bold;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		table {
+			margin: 0 auto;
+			border: 1px solid black;
+			padding: 10px;
+		}
+
+		tr {
+			border: 1px solid black;
+		}
+
+		td {
+			padding: 7px;
+		}
+
+		.tableCheckbox {
+
+			border-style: none;
+		}
+
+		.tableCheckbox tr {
+			text-align: right;
+		}
+
+		input[type=checkbox] {
+			margin-left: 10px;
+		}
+
+
+		body {
+			margin: 100px;
+			font-size: 130%;
+		}
+
+		select,
+		option {
+			font-size: 100%;
+			padding: 5px;
+			color: white;
+			background-color: rgb(40, 167, 69);
+		}
+	</style>
+
+	<script>
+
+	</script>
+
+
+</head>
+
+<body>
+	<h1>Question 1</h1>
+	<hr />
+
+	<form>
+		<table>
+			<tr>
+				<td>Nom de l'employé : <input id="txtNom" type="text" name="txtNom" size="40" /></td>
+				<td rowspan="2">Habiletés:<br />
+					<table class="tableCheckbox">
+						<tr>
+							<td><label>.Net<input type="checkbox" name="chkHab" value="Net" /></label></td>
+							<td><label>PHP<input type="checkbox" name="chkHab" value="PHP" /></label></td>
+							<td><label>C/C++<input type="checkbox" name="chkHab" value="C/C++" /></label></td>
+							<td><label>Oracle<input type="checkbox" name="chkHab" value="Oracle" /></label></td>
+							<td><label>ASP<input type="checkbox" name="chkHab" value="ASP" /><br /></label></td>
+						</tr>
+						<tr>
+							<td><label>JS<input type="checkbox" name="chkHab" value="JS" /></label></td>
+							<td><label>Linux<input type="checkbox" name="chkHab" value="Linux" /></label></td>
+							<td><label>XML<input type="checkbox" name="chkHab" value="XML" /></label></td>
+							<td><label>PL/SQL<input type="checkbox" name="chkHab" value="PL/SQL" /></label></td>
+							<td><label>Java<input type="checkbox" name="chkHab" value="Java" /></label></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Type d'employé:
+					<select id="sType" name="sType">
+						<option value="dev">Développeur</option>
+						<option value="con">Contracteur-Freelance</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center">Sortie:<br />
+					<textarea id="txtSortie" cols="100" rows="10"></textarea>
+					<br /><br />
+					<input type="button" id="btnAfficher" class="btn btn-success btn-lg" value="Afficher" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		const emloyeesSelect = document.querySelector("select");
+		const habiletés = document.querySelectorAll("input[type=checkbox]")
+		const nomEmployee = document.querySelector("input[name=txtNom]")
+		const button = document.querySelector("input[type=button]")
+		const textarea = document.querySelector("textarea")
+		// console.log(emloyeesSelect,habiletés,nomEmployee,button);
+
+		function getType() {
+			return emloyeesSelect.options[emloyeesSelect.selectedIndex].text;
+		}
+
+		function getHabilites() {
+			return Array.from(habiletés)
+				.filter(habileté => habileté.checked)
+				.map(habileté => habileté.value);
+		}
+
+
+		function afficher() {
+			if (nomEmployee.value == '' || getHabilites().length == 0) {
+				alert("Le nom et les habilites sont obligatoire");
+			}
+			else
+				textarea.innerHTML = `Nom : ${nomEmployee.value}\nType d'employe : ${getType()}\nHabilites : \n${getHabilites().join("\n")}`;
+		}
+
+		button.addEventListener("click", afficher)
+
+	</script>
+</body>
+
+</html>
+<!-- 
+		let tab = []; 
+		function returnHabilites(){
+
+			for (let i = 0; i < habiletés.length; i++) {
+				const element = habiletés[i];
+				
+				if(element.checked){
+					tab.push(element.value)
+				}
+				
+			}
+			return tab
+		}
+		console.log(tab);
+
+				window.addEventListener("change", () => {
+			console.log(returnHabilites());
+
+		})
+
+
+				window.addEventListener("change", () => {
+			// console.log("change");
+			console.log(getHabilites());
+			console.log(getType());
+			console.log(nomEmployee.value);
+		})
+ -->

@@ -96,12 +96,12 @@
 	let options = [];
 
 	select.addEventListener("input", () => {
-		modelJeep = select.options[select.selectedIndex].value; 
+		modelJeep = select.options[select.selectedIndex].value;
 	})
-
+ 
 	btnDisplay.addEventListener("click", () => {
 		checkboxes.forEach(checkbox => {
-			if (checkbox.checked){
+			if (checkbox.checked) {
 				options.push(checkbox.value)
 			}
 		})
@@ -110,9 +110,9 @@
 	})
 	console.log(select, checkboxes);
 
-  btnReset.addEventListener("click", () => {
-    textArea.value = '';
-  })
+	btnReset.addEventListener("click", () => {
+		textArea.value = '';
+	})
 </script>
 
 </html>
