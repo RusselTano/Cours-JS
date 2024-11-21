@@ -53,6 +53,7 @@
     <div class="buttons">
       <button class="randomButton">Random color</button>
       <button class="copyButton">Copy</button>
+      <button>setinterval</button>
     </div>
 
     <textarea placeholder="Checking the copy"></textarea>
@@ -133,8 +134,30 @@
       });
 
     }
+
+    let interval;
+    let isInterval = false;
+    const intervalButton = document.querySelector("button:nth-child(3)");
+    intervalButton.addEventListener("click", () => {
+      // isInterval = !isInterval;
+      if (isInterval) {
+        clearInterval(interval);
+        console.log("if isInterval", isInterval);
+        isInterval = false;
+      }
+      else {
+        console.log("else isInterval", isInterval);
+        isInterval = true;
+        interval = setInterval(randomColor, 1000);
+
+      }
+    });
   </script>
   <style>
+    button:nth-child(3) {
+      background-color: #387e35;
+      color: white;
+    }
     .container {
       display: flex;
       flex-direction: column;
