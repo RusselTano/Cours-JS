@@ -23,18 +23,18 @@
   </div>
   <div class="container">
 
-    <h2 class="rgba">RGBA(242,227,145)</h2>
+    <h2 class="rgba"></h2>
     <div class="color"></div>
 
     <div class="rangeColor">
 
       <div class="input-box">
-        <input type="range" name="red" id="red" value="242" max="255"><br>
+        <input type="range" name="red" id="red"><br>
         <label for="red">Red : <span class="redValue"></span></label>
       </div>
 
       <div class="input-box">
-        <input type="range" name="green" id="green" value="227" max="255"><br>
+        <input type="range" name="green" id="green"><br>
         <label for="green">Green : <span class="greenValue"></span></label>
       </div>
 
@@ -47,13 +47,17 @@
         <input type="range" name="opacity" id="opacity" value="1" max="1" step="0.1"><br>
         <label for="opacity">Opacity : <span class="opacityValue"></span></label>
       </div>
+      <div class="input-box">
+        <input type="range" name="vitesse" id="vitesse" value="1" min="1" max="3000"><br>
+        <label for="vitesse">Vitesse : <span class="vitesseValue"></span></label>
+      </div>
 
     </div>
 
     <div class="buttons">
       <button class="randomButton">Random color</button>
       <button class="copyButton">Copy</button>
-      <button>setinterval</button>
+      <button>Effet psychédélique </button>
     </div>
 
     <textarea placeholder="Checking the copy"></textarea>
@@ -68,6 +72,13 @@
     const randomButton = document.querySelector(".randomButton");
     const copyButton = document.querySelector(".copyButton");
     const textarea = document.querySelector("textarea")
+    const effetButton = document.querySelector("button:nth-child(3)");
+    const vitesse = inputRange[4];
+    inputValue[4].innerHTML = vitesse.value;
+    let red = 0;
+    let green = 0;
+    let blue = 0;
+    let opacity = 0;
 
     function emptyTextarea() {
       setTimeout(() => {
@@ -76,13 +87,13 @@
     }
     textarea.addEventListener("blur", emptyTextarea);
 
-      updateColor();
+    // updateColor();
 
     function updateColor() {
-      const red = inputRange[0].value;
-      const green = inputRange[1].value;
-      const blue = inputRange[2].value;
-      const opacity = inputRange[3].value;
+      red = inputRange[0].value;
+      green = inputRange[1].value;
+      blue = inputRange[2].value;
+      opacity = inputRange[3].value;
 
       updateInput(red, green, blue, opacity)
 
@@ -93,7 +104,6 @@
 
     inputRange.forEach((input, index) => {
       input.addEventListener("input", (e) => {
-        // inputValue[index].textContent = e.target.value;
         updateColor();
       });
     });
@@ -101,17 +111,17 @@
     randomButton.addEventListener("click", randomColor);
 
     function randomColor() {
-      const randomRed = Math.floor(Math.random() * 256);
-      const randomGreen = Math.floor(Math.random() * 256);
-      const randomBlue = Math.floor(Math.random() * 256);
-      const randomOpacity = Math.random();
+      red = Math.floor(Math.random() * 256);
+      green = Math.floor(Math.random() * 256);
+      blue = Math.floor(Math.random() * 256);
+      opacity = (Math.random()).toFixed(1);
 
-      updateInput(randomRed, randomGreen, randomBlue, randomOpacity)
+      updateInput()
 
       updateColor();
     }
 
-    function updateInput(red, green, blue, opacity) {
+    function updateInput() {
       inputRange[0].value = red;
       inputRange[1].value = green;
       inputRange[2].value = blue;
@@ -135,29 +145,72 @@
 
     }
 
-    let interval;
+    let intervalId = null;
     let isInterval = false;
-    const intervalButton = document.querySelector("button:nth-child(3)");
-    intervalButton.addEventListener("click", () => {
-      // isInterval = !isInterval;
+    effetButton.addEventListener("click", () => {
       if (isInterval) {
-        clearInterval(interval);
+        clearInterval(intervalId);
         console.log("if isInterval", isInterval);
         isInterval = false;
+        effetButton.innerHTML = "Effet psychédélique "
       }
       else {
         console.log("else isInterval", isInterval);
         isInterval = true;
-        interval = setInterval(randomColor, 1000);
-
+        intervalId = setInterval(randomColor, vitesse.value);
+        effetButton.innerHTML = "Arrêter effet "
       }
     });
+
+
+    function handleUnload() {
+  localStorage.setItem("red", red);
+  localStorage.setItem("green", green);
+  localStorage.setItem("blue", blue);
+  localStorage.setItem("opacity", opacity);
+}
+
+function handleLoad() {
+  const storedRed = localStorage.getItem("red");
+  const storedGreen = localStorage.getItem("green");
+  const storedBlue = localStorage.getItem("blue");
+  const storedOpacity = localStorage.getItem("opacity");
+
+  if (storedRed !== null && storedGreen !== null && storedBlue !== null && storedOpacity !== null) {
+    red = storedRed;
+    green = storedGreen;
+    blue = storedBlue;
+    opacity = storedOpacity;
+    updateInput();
+    updateColor();
+  } else {
+    randomColor();
+  }
+}
+
+window.addEventListener("unload", handleUnload);
+window.addEventListener("load", handleLoad);
+
+    vitesse.addEventListener("input", updateSpeed)
+    function updateSpeed() {
+      if (intervalId) {
+        clearInterval(intervalId)
+        intervalId = setInterval(randomColor, vitesse.value);
+      }
+      inputValue[4].innerHTML = vitesse.value;
+    }
+
   </script>
   <style>
+    button {
+      cursor: pointer;
+    }
+
     button:nth-child(3) {
       background-color: #387e35;
       color: white;
     }
+
     .container {
       display: flex;
       flex-direction: column;
