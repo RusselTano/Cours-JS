@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!--
-        auteur : Dylane Tano
-        date : 2024
--->
+    auteur : Dylane Tano
+    date : 2024
+    -->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Binaire-Décimal</title>
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+  <title>Binaire-Décimal</title>
   <style>
     * {
       box-sizing: border-box;
@@ -147,13 +146,11 @@
     </form>
     <p id="info"></p>
   </div>
-
   <script>
     $(document).ready(function () {
 
       $("#txtBinaire").val("")
 
-      //Gestion des cliques sur les 3 boutons.
       let already = false;
       $("#btnZero").click(() => {
         if (already) {
@@ -167,6 +164,7 @@
           $("#txtBinaire").val($("#txtBinaire").val() + "0");
         }
       })
+
       $("#btnUn").click(() => {
         if (already) {
           $("#txtBinaire").val("");
@@ -179,13 +177,15 @@
           $("#txtBinaire").val($("#txtBinaire").val() + "1")
         }
       })
+
       $("#btnConvert").click(() => {
         already = true;
         let decimalValue = parseInt($("#txtBinaire").val(), 2)
-        $("#info").fadeIn("3000").text(`En decimal : ${decimalValue}`)
-        $(".result").fadeIn("3000").text(decimalValue)
+        $("#info").text(`En decimal : ${decimalValue}`)
+        $(".result").text(decimalValue)
 
       })
+
       $("#txtBinaire").focus(() => {
         if (already) {
           $(".result").text("0")
