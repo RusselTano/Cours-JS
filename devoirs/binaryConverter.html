@@ -18,7 +18,7 @@
     }
 
     body {
-      height: 100vh;
+      min-height: 100vh;
       /* background: linear-gradient(45deg, blue, purple) center/cover no-repeat;
        */
       background: linear-gradient(to right,
@@ -28,7 +28,7 @@
     }
 
     #app {
-      margin-top: 100px;
+      padding-top: 100px;
       display: grid;
     }
 
@@ -50,7 +50,7 @@
 
     .display {
       font-weight: 200;
-      padding: 60px 15px;
+      height: 100px;
       margin-bottom: 25px;
       border-radius: 25px;
       border: 1px solid rgb(97, 97, 97);
@@ -94,7 +94,7 @@
     form {
       display: grid;
       gap: 20px;
-      width: 375px;
+      width: 350px;
       margin: 50px auto 0;
       background: #101a22;
       border-radius: 25px;
@@ -104,7 +104,7 @@
     }
 
     button {
-      min-width: 100px;
+      min-width: 80px;
       min-height: 50px;
       border: 0;
       font-size: 22px;
@@ -141,6 +141,7 @@
       <div class="zero-one">
         <button type="button" id="btnZero">0</button>
         <button type="button" id="btnUn">1</button>
+        <button type="button" id="clear">CE</button>
       </div>
       <button type="submit" id="btnConvert"> = </button>
     </form>
@@ -192,6 +193,26 @@
           $("#info").text("").hide()
           already = false;
         }
+      })
+
+      $("#clear").click(clearFields);
+
+      $(document).keydown((event) => {
+        if (event.key === "Escape") {
+          clearFields();
+        }
+      });
+
+      function clearFields() {
+        $("#txtBinaire").val("");
+        $(".result").text("0");
+        $("#info").text("").hide();
+        already = false;
+      }
+
+
+      $("form").submit((e) => {
+        e.preventDefault();
       })
     });
   </script>
